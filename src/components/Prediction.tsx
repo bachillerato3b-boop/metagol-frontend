@@ -2,9 +2,7 @@
 
 import { useState } from "react";
 
-import { QRCodeCanvas } from "qrcode.react";
-
-import { teams } from "../../../shared/data/teams";
+import { teams } from "../shared/data/teams";
 import { useEventStatus } from "../contexts/EventStatusContext";
 import type { PredictionPayload } from "../Types/prediction";
 

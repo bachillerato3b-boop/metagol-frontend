@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { teams } from "../../../shared/data/teams";
+import { teams } from "../shared/data/teams";
 
 interface Cartilla {
   _id: string;
