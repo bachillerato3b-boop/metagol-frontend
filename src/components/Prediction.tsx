@@ -250,7 +250,11 @@ const rightTeams = availableTeams.slice(6, 12);
   <div
     style={{
       display: "grid",
-      gridTemplateColumns: "repeat(4, 1fr)",
+      // gridTemplateColumns: "repeat(4, 1fr)",
+      
+      gridTemplateColumns:
+  "repeat(auto-fit, minmax(220px, 1fr))",
+
       gap: "12px",
       marginBottom: "32px",
     }}
@@ -278,7 +282,12 @@ const rightTeams = availableTeams.slice(6, 12);
   <div
     style={{
       display: "grid",
-      gridTemplateColumns: "repeat(4, 1fr)",
+      
+      // gridTemplateColumns: "repeat(4, 1fr)",
+      
+      gridTemplateColumns:
+  "repeat(auto-fit, minmax(220px, 1fr))",
+
       gap: "10px",
     }}
   >
@@ -351,7 +360,12 @@ const rightTeams = availableTeams.slice(6, 12);
 <div
   style={{
     display: "grid",
-    gridTemplateColumns: "repeat(4, 1fr)",
+    
+    // gridTemplateColumns: "repeat(4, 1fr)",
+    
+    gridTemplateColumns:
+  "repeat(auto-fit, minmax(220px, 1fr))",
+    
     gap: "10px",
     marginTop: "6px",
   }}
@@ -396,7 +410,12 @@ const rightTeams = availableTeams.slice(6, 12);
 <div
   style={{
     display: "grid",
-    gridTemplateColumns: "repeat(4, 1fr)",
+    
+    // gridTemplateColumns: "repeat(4, 1fr)",
+    
+    gridTemplateColumns:
+  "repeat(auto-fit, minmax(220px, 1fr))",
+    
     gap: "8px",
     marginTop: "16px",
   }}
@@ -816,8 +835,27 @@ if (dataCartilla.ok) {
   sensors={sensors}
   autoScroll={false}
   key={groupId} onDragEnd={(e) => handleGroupDragEnd(e, groupId)}>
-        <div style={{ display: "flex", gap: "40px" }}>
-          <div style={{ flex: 1 }}>
+        
+        
+        // <div style={{ display: "flex", gap: "40px" }}>
+        
+        <div
+  style={{
+    display: "flex",
+    gap: "40px",
+    flexWrap: "wrap",
+  }}
+></div>
+
+         //  <div style={{ flex: 1 }}>
+            
+            <div
+  style={{
+    flex: 1,
+    minWidth: "280px",
+  }}
+></div>
+            
             {groupTeams.map((t) => (
               <DraggableTeam
                 key={t.id}
@@ -828,7 +866,15 @@ if (dataCartilla.ok) {
             ))}
           </div>
 
-          <div style={{ flex: 1 }}>
+          // <div style={{ flex: 1 }}>
+            
+            <div
+  style={{
+    flex: 1,
+    minWidth: "280px",
+  }}
+></div>
+            
             {[0, 1, 2, 3].map((pos) => {
               const teamId = group.positions[pos];
               const team = teams.find((t) => t.id === teamId);
