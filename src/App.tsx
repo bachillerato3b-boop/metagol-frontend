@@ -15,7 +15,7 @@ import Ranking from "./components/Ranking";
 
 function App() {
 
-const DEMO_CODE = "UDLA2026Demo#";
+const DEMO_CODE = "UDLAmundial2026Demo#";
 
 const [demoAccess, setDemoAccess] = useState(
   sessionStorage.getItem("demo_access") === "ok"
@@ -148,7 +148,7 @@ if (!demoAccess) {
         <h1>🔒 MetaGol Demo Privada</h1>
 
         <p>
-          Acceso restringido para pruebas y demostraciones.
+          Acceso restringido SOLO para pruebas y demostraciones.
         </p>
 
         <input
