@@ -14,6 +14,15 @@ import { useEventStatus } from "./contexts/EventStatusContext";
 import Ranking from "./components/Ranking";
 
 function App() {
+
+const DEMO_CODE = "UDLA2026Demo#";
+
+const [demoAccess, setDemoAccess] = useState(
+  sessionStorage.getItem("demo_access") === "ok"
+);
+
+const [demoInput, setDemoInput] = useState("");
+
   const { status } = useEventStatus();  
   const isPublicCartillaRoute =
     window.location.pathname.startsWith("/cartilla/");
@@ -111,6 +120,81 @@ setToken(null);
 
 if (isPublicCartillaRoute) {
   return <PublicCartilla />;
+}
+
+if (!demoAccess) {
+  return (
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background: "#f3f4f6",
+        padding: "20px",
+      }}
+    >
+      <div
+        style={{
+          background: "#fff",
+          padding: "40px",
+          borderRadius: "20px",
+          maxWidth: "420px",
+          width: "100%",
+          boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+          textAlign: "center",
+        }}
+      >
+        <h1>🔒 MetaGol Demo Privada</h1>
+
+        <p>
+          Acceso restringido para pruebas y demostraciones.
+        </p>
+
+        <input
+          type="password"
+          placeholder="Código de acceso"
+          value={demoInput}
+          onChange={(e) => setDemoInput(e.target.value)}
+          style={{
+            width: "100%",
+            padding: "14px",
+            marginTop: "15px",
+            borderRadius: "12px",
+            border: "1px solid #d1d5db",
+            boxSizing: "border-box",
+          }}
+        />
+
+        <button
+          onClick={() => {
+            if (demoInput === DEMO_CODE) {
+              sessionStorage.setItem(
+                "demo_access",
+                "ok"
+              );
+              setDemoAccess(true);
+            } else {
+              alert("Código incorrecto");
+            }
+          }}
+          style={{
+            width: "100%",
+            marginTop: "15px",
+            padding: "14px",
+            border: "none",
+            borderRadius: "12px",
+            background: "#111827",
+            color: "#fff",
+            fontWeight: "bold",
+            cursor: "pointer",
+          }}
+        >
+          Entrar
+        </button>
+      </div>
+    </div>
+  );
 }
 
   return (
