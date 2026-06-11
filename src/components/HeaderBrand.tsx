@@ -13,7 +13,7 @@ export default function HeaderBrand() {
         background:
           "linear-gradient(135deg, #0f172a 0%, #111827 100%)",
         boxShadow: "0 4px 20px rgba(0,0,0,0.25)",
-        flexWrap: "nowrap",
+        flexWrap: "wrap",
       }}
     >
 
@@ -21,7 +21,7 @@ export default function HeaderBrand() {
       <div
         style={{
           flex: 1,
-          minWidth: "110px",
+          minWidth: "70px",
           textAlign: "center",
         }}
       >
@@ -29,7 +29,7 @@ export default function HeaderBrand() {
           src="/logos/metagol.jpeg"
           alt="MetaGol"
           style={{
-            maxWidth: "100px",
+            maxWidth: "70px",
             width: "100%",
             borderRadius: "12px",
           }}
@@ -40,7 +40,7 @@ export default function HeaderBrand() {
 <div
   style={{
     flex: 1.4,
-    minWidth: "180px",
+    minWidth: "140px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -51,7 +51,7 @@ export default function HeaderBrand() {
 
   <div
     style={{
-      fontSize: "24px",
+      fontSize: "16px",
       fontWeight: "bold",
       marginBottom: "8px",
       letterSpacing: "1px",
@@ -83,7 +83,7 @@ export default function HeaderBrand() {
       style={{
         whiteSpace: "nowrap",
         fontWeight: "bold",
-        fontSize: "16px",
+        fontSize: "18px",
         color: "#e2e8f0",
       }}
     >
@@ -108,7 +108,7 @@ export default function HeaderBrand() {
       <div
         style={{
           flex: 1,
-          minWidth: "110px",
+          minWidth: "70px",
           display: "flex",
           flexDirection: "row",
           gap: "12px",
@@ -119,7 +119,7 @@ export default function HeaderBrand() {
           src="/logos/udla.png"
           alt="UDLA"
           style={{
-            maxWidth: "95px",
+            maxWidth: "55px",
             width: "100%",
             background: "#fff",
             padding: "10px",
@@ -131,7 +131,7 @@ export default function HeaderBrand() {
           src="/logos/cosmos.png"
           alt="Cosmos"
           style={{
-            maxWidth: "95px",
+            maxWidth: "55px",
             width: "100%",
             background: "#fff",
             padding: "10px",

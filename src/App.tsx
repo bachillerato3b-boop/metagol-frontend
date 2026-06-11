@@ -15,7 +15,7 @@ import Ranking from "./components/Ranking";
 
 function App() {
 
-const DEMO_CODE = "UDLAmundial2026Demo#";
+  const DEMO_CODE = "UDLAmundial2026Demo#";
 
 const [demoAccess, setDemoAccess] = useState(
   sessionStorage.getItem("demo_access") === "ok"

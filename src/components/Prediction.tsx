@@ -161,6 +161,10 @@ const sensors = useSensors(
   /* ================= NEXT GROUP ================= */
   const nextGroup = () => {
     const groupId = GROUPS[groupIndex];
+
+console.log("GROUP INDEX:", groupIndex);
+console.log("GROUP ID:", GROUPS[groupIndex]);
+
     const group = getGroup(groupId);
 
     if (group.positions.filter((p) => p).length !== 4) {
@@ -180,24 +184,48 @@ const sensors = useSensors(
         };
       });
 
-      setPrediction((prev) => ({
-        ...prev,
-        groups: completedGroups,
-      }));
+      console.log("COMPLETED GROUPS", completedGroups);
 
-      setStep("THIRDS");
+setPrediction((prev) => ({
+  ...prev,
+  groups: completedGroups,
+}));
+
+setStep("THIRDS");
     }
   };
 
   /* ================= THIRDS ================= */
   if (step === "THIRDS") {
-    const thirdTeams = prediction.groups.map((g) => g.positions[2]);
+
+console.log("ENTRANDO A THIRDS");
+console.log("GROUPS:", prediction.groups);
+
+
+console.log("RAW GROUPS", prediction.groups);
+
+console.log("ANTES DE thirdTeams");
+
+const thirdTeams = prediction.groups.map((g) => g.positions[2]);
+
+console.log("THIRD TEAMS:", thirdTeams);
 
     const availableTeams = teams.filter((t) =>
       thirdTeams.includes(t.id)
     );
     const leftTeams = availableTeams.slice(0, 6);
 const rightTeams = availableTeams.slice(6, 12);
+
+console.log("THIRD TEAMS:", thirdTeams);
+console.log("AVAILABLE TEAMS:", availableTeams);
+
+return (
+  <div>
+    <h1>TEST THIRDS</h1>
+  </div>
+);
+
+console.log("AVAILABLE COUNT:", availableTeams.length);
 
     return (
       <div
@@ -824,71 +852,73 @@ if (dataCartilla.ok) {
 
   /* ================= GROUPS ================= */
   const groupId = GROUPS[groupIndex];
+
+console.log("GROUP INDEX:", groupIndex);
+console.log("GROUP ID:", GROUPS[groupIndex]);
+
   const groupTeams = teams.filter((t) => t.groupId === groupId);
   const group = getGroup(groupId);
 
   return (
     <div style={{ maxWidth: "900px", margin: "auto" }}>
-      <h1 style={{ textAlign: "center" }}>Grupo {groupId}</h1>
+      
+      <h1 style={{ textAlign: "center" }}>
+  TEST {groupId} - IDX {groupIndex}
+</h1>
 
-      <DndContext
+     <DndContext
   sensors={sensors}
   autoScroll={false}
-  key={groupId} onDragEnd={(e) => handleGroupDragEnd(e, groupId)}>
-        
-        
-        // <div style={{ display: "flex", gap: "40px" }}>
-        
-        <div
-  style={{
-    display: "flex",
-    gap: "40px",
-    flexWrap: "wrap",
-  }}
-></div>
+  key={groupId}
+  onDragEnd={(e) => handleGroupDragEnd(e, groupId)}
+>
+  <div
+    style={{
+      display: "flex",
+      gap: "40px",
+      flexWrap: "wrap",
+    }}
+  >
+    <div
+      style={{
+        flex: 1,
+        minWidth: "280px",
+      }}
+    >
+      {groupTeams.map((t) => (
+        <DraggableTeam
+          key={t.id}
+          id={t.id}
+          name={t.name}
+          selected={group.positions.includes(t.id)}
+        />
+      ))}
+    </div>
 
-         //  <div style={{ flex: 1 }}>
-            
-            <div
-  style={{
-    flex: 1,
-    minWidth: "280px",
-  }}
-></div>
-            
-            {groupTeams.map((t) => (
-              <DraggableTeam
-                key={t.id}
-                id={t.id}
-                name={t.name}
-                selected={group.positions.includes(t.id)}
-              />
-            ))}
-          </div>
+    <div
+      style={{
+        flex: 1,
+        minWidth: "280px",
+      }}
+    >
+      {[0, 1, 2, 3].map((pos) => {
+        const teamId = group.positions[pos];
+        const team = teams.find((t) => t.id === teamId);
 
-          // <div style={{ flex: 1 }}>
-            
-            <div
-  style={{
-    flex: 1,
-    minWidth: "280px",
-  }}
-></div>
-            
-            {[0, 1, 2, 3].map((pos) => {
-              const teamId = group.positions[pos];
-              const team = teams.find((t) => t.id === teamId);
-
-              return (
-                <DropZone key={pos} id={String(pos)} filled={!!team}>
-                  <span>{pos + 1}°</span>
-                  <span>{team?.name || "Soltar aquí"}</span>
-                </DropZone>
-              );
-            })}
-          </div>
-        </div>
-      </DndContext>
+        return (
+          <DropZone
+            key={pos}
+            id={String(pos)}
+            filled={!!team}
+          >
+            <span>{pos + 1}°</span>
+            <span>{team?.name || "Soltar aquí"}</span>
+          </DropZone>
+        );
+      })}
+    </div>
+  </div>
+</DndContext>
 
       <div style={{ textAlign: "center", marginTop: 20 }}>
         <button onClick={nextGroup}>
