@@ -13,7 +13,8 @@ export default function HeaderBrand() {
         background:
           "linear-gradient(135deg, #0f172a 0%, #111827 100%)",
         boxShadow: "0 4px 20px rgba(0,0,0,0.25)",
-        flexWrap: "wrap",
+       flexDirection: "row",
+flexWrap: "nowrap",
       }}
     >
 
@@ -21,7 +22,7 @@ export default function HeaderBrand() {
       <div
         style={{
           flex: 1,
-          minWidth: "70px",
+          minWidth: "110px",
           textAlign: "center",
         }}
       >
@@ -29,62 +30,35 @@ export default function HeaderBrand() {
           src="/logos/metagol.jpeg"
           alt="MetaGol"
           style={{
-            maxWidth: "70px",
+            maxWidth: "100px",
             width: "100%",
             borderRadius: "12px",
           }}
         />
       </div>
 
-      {/* CENTRO */}
+     {/* CENTRO */}
 <div
   style={{
-    flex: 1.4,
-    minWidth: "140px",
+    flex: 2,
     display: "flex",
-    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    color: "#fff",
   }}
 >
-
   <div
     style={{
-      fontSize: "16px",
-      fontWeight: "bold",
-      marginBottom: "8px",
-      letterSpacing: "1px",
-    }}
-  >
-    ⚽ MUNDIAL 2026
-  </div>
-
-  <div
-    style={{
-      width: "100%",
       display: "flex",
+      flexDirection: "column",
       alignItems: "center",
-      justifyContent: "center",
-      gap: "12px",
+      gap: "4px",
     }}
   >
-
     <div
       style={{
-        height: "3px",
-        background: "#38bdf8",
-        flex: 1,
-        borderRadius: "999px",
-      }}
-    />
-
-    <div
-      style={{
-        whiteSpace: "nowrap",
+        fontSize: "14px",
         fontWeight: "bold",
-        fontSize: "18px",
-        color: "#e2e8f0",
+        color: "#cbd5e1",
       }}
     >
       Hasta alcanzar las estrellas
@@ -92,25 +66,44 @@ export default function HeaderBrand() {
 
     <div
       style={{
-        fontSize: "28px",
+        fontSize: "34px",
         color: "#38bdf8",
         fontWeight: "bold",
+        lineHeight: 1,
       }}
     >
       ⟶
     </div>
 
-  </div>
+    <div
+      style={{
+        fontSize: "18px",
+        fontWeight: "bold",
+        color: "#ffffff",
+      }}
+    >
+      ⚽ MUNDIAL 2026
+    </div>
 
+    <div
+      style={{
+        fontSize: "13px",
+        color: "#cbd5e1",
+      }}
+    >
+      FASE 1
+    </div>
+  </div>
 </div>
 
       {/* LOGOS DERECHA */}
       <div
         style={{
           flex: 1,
-          minWidth: "70px",
+          minWidth: "110px",
           display: "flex",
           flexDirection: "row",
+flexWrap: "nowrap",
           gap: "12px",
           alignItems: "center",
         }}
@@ -119,7 +112,7 @@ export default function HeaderBrand() {
           src="/logos/udla.png"
           alt="UDLA"
           style={{
-            maxWidth: "55px",
+            maxWidth: "95px",
             width: "100%",
             background: "#fff",
             padding: "10px",
@@ -131,7 +124,7 @@ export default function HeaderBrand() {
           src="/logos/cosmos.png"
           alt="Cosmos"
           style={{
-            maxWidth: "55px",
+            maxWidth: "95px",
             width: "100%",
             background: "#fff",
             padding: "10px",

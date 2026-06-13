@@ -219,13 +219,6 @@ const rightTeams = availableTeams.slice(6, 12);
 console.log("THIRD TEAMS:", thirdTeams);
 console.log("AVAILABLE TEAMS:", availableTeams);
 
-return (
-  <div>
-    <h1>TEST THIRDS</h1>
-  </div>
-);
-
-console.log("AVAILABLE COUNT:", availableTeams.length);
 
     return (
       <div
@@ -278,10 +271,9 @@ console.log("AVAILABLE COUNT:", availableTeams.length);
   <div
     style={{
       display: "grid",
-      // gridTemplateColumns: "repeat(4, 1fr)",
+      gridTemplateColumns: "repeat(4, 1fr)",
       
-      gridTemplateColumns:
-  "repeat(auto-fit, minmax(220px, 1fr))",
+     
 
       gap: "12px",
       marginBottom: "32px",
@@ -311,11 +303,9 @@ console.log("AVAILABLE COUNT:", availableTeams.length);
     style={{
       display: "grid",
       
-      // gridTemplateColumns: "repeat(4, 1fr)",
+      gridTemplateColumns: "repeat(4, 1fr)",
       
-      gridTemplateColumns:
-  "repeat(auto-fit, minmax(220px, 1fr))",
-
+      
       gap: "10px",
     }}
   >
@@ -389,10 +379,9 @@ console.log("AVAILABLE COUNT:", availableTeams.length);
   style={{
     display: "grid",
     
-    // gridTemplateColumns: "repeat(4, 1fr)",
+    gridTemplateColumns: "repeat(4, 1fr)",
     
-    gridTemplateColumns:
-  "repeat(auto-fit, minmax(220px, 1fr))",
+    
     
     gap: "10px",
     marginTop: "6px",
@@ -439,10 +428,9 @@ console.log("AVAILABLE COUNT:", availableTeams.length);
   style={{
     display: "grid",
     
-    // gridTemplateColumns: "repeat(4, 1fr)",
+    gridTemplateColumns: "repeat(4, 1fr)",
     
-    gridTemplateColumns:
-  "repeat(auto-fit, minmax(220px, 1fr))",
+    
     
     gap: "8px",
     marginTop: "16px",
@@ -462,6 +450,25 @@ console.log("AVAILABLE COUNT:", availableTeams.length);
       {i + 1}° - {teams.find(t => t.id === teamId)?.name}
     </div>
   ))}
+</div>
+
+<div
+  style={{
+    marginTop: "20px",
+    padding: "12px",
+    borderRadius: "10px",
+    background: "#f8fafc",
+    border: "1px solid #cbd5e1",
+    fontSize: "14px",
+    color: "#334155",
+    lineHeight: "1.5",
+  }}
+>
+  <strong>Nota para la demostración:</strong>
+  <br />
+  En la versión productiva, este resumen será enviado
+  automáticamente al correo electrónico registrado por el
+  participante como comprobante oficial de participación.
 </div>
 
 <div style={{ marginTop: 20 }}>
@@ -863,7 +870,7 @@ console.log("GROUP ID:", GROUPS[groupIndex]);
     <div style={{ maxWidth: "900px", margin: "auto" }}>
       
       <h1 style={{ textAlign: "center" }}>
-  TEST {groupId} - IDX {groupIndex}
+  GRUPO {groupId}
 </h1>
 
      <DndContext
